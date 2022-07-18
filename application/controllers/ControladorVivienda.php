@@ -11,7 +11,7 @@ class ControladorVivienda extends CI_Controller
         $this->load->view('VistaCrearVivienda');
     }
 
-    public function c_guardarAlumno()
+    public function c_guardarVivienda()
     {
         $direccion = $this->input->get('CampoDireccion');    
         $numero_casa = $this->input->get('CampoNumero');

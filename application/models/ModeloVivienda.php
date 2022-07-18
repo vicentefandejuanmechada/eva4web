@@ -2,7 +2,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class ModeloVivienda extends CI_Model
-{
+{     
 
     public function m_insertVivienda($direccion, $numero_casa, $tipo,$estado)
     {
