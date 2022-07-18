@@ -11,7 +11,7 @@
 <body>
     <h1>FORMULARIO DE INGRESO De una vivienda</h1>
 
-    <form action="<?php echo base_url()?>index.php/ControladorVivienda/c_guardarAlumno" method="get">
+    <form action="<?php echo base_url()?>index.php/ControladorVivienda/c_guardarVivienda" method="get">
         <label for="idireccion">Direccion</label>
         <input class="form-control" type="text" name="CampoDireccion" id="idireccion">
         <br>
