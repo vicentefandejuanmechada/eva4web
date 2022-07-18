@@ -54,10 +54,10 @@ class ControladorVivienda extends CI_Controller
         echo $id_captura = $this->uri->segment(3, 0);
 
         //cargamos el ModeloAlumno
-        $this->load->model('ModeloAlumno');
+        $this->load->model('ModeloVivienda');
 
         //utilizamo el método m_deleteAlumno() del ModeloAlumno
-        $datos_alumnos = $this->ModeloAlumno->m_deleteAlumno($id_captura);
+        $this->ModeloVivienda->m_deleteAlumno($id_captura);
 
         //cerramos la BD
         $this->db->close();
