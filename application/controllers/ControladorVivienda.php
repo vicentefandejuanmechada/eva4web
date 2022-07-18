@@ -56,9 +56,9 @@ class ControladorVivienda extends CI_Controller
         //cargamos el ModeloAlumno
         $this->load->model('ModeloVivienda');
 
+
         //utilizamo el método m_deleteVivienda() del ModeloAlumno
         $datos_alumnos = $this->ModeloVivienda->m_deleteVivienda($id_captura);
-
         //cerramos la BD
         $this->db->close();
 
