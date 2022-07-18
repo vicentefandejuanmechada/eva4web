@@ -1,4 +1,4 @@
-<h1>VISTA MOSTRAR ALUMNOS</h1>
+<h1>VISTA MOSTRAR ViviendaS</h1>
 <table class="table">
     <tr>
         <th>Direccion</th>
@@ -16,8 +16,8 @@
         <td><?php echo $row['numero'];?></td>
         <td><?php echo $row['tipo'];?></td>
         <td><?php echo $row['estado'];?></td>
-        <td><a href="<?php echo base_url()?>index.php/ControladorVivienda/c_eliminarAlumno/<?php echo $row['id_vivienda']?>"><button class="btn btn-danger">ELIMINAR</button></a></td>
-        <td><a href="<?php echo base_url()?>index.php/ControladorVivienda/c_editarAlumno/<?php echo $row['id_vivienda']?>"><button class="btn btn-primary">EDITAR</button></a></td>
+        <td><a href="<?php echo base_url()?>index.php/ControladorVivienda/c_eliminarVivienda/<?php echo $row['id_vivienda']?>"><button class="btn btn-danger">ELIMINAR</button></a></td>
+        <td><a href="<?php echo base_url()?>index.php/ControladorVivienda/c_editarVivienda/<?php echo $row['id_vivienda']?>"><button class="btn btn-primary">EDITAR</button></a></td>
     </tr>  
     <?php    
     }

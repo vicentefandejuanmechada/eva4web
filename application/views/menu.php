@@ -23,7 +23,7 @@
                         <a class="nav-link active" aria-current="page" href="<?php echo base_url()?>index.php/ControladorVivienda/index">CREAR Vivienda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url()?>index.php/ControladorVivienda/c_obtenerAlumnos">Mostrar Vivienda</a>
+                        <a class="nav-link" href="<?php echo base_url()?>index.php/ControladorVivienda/c_obtenerVivienda">Mostrar Vivienda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Pricing</a>

@@ -8,103 +8,85 @@ class ControladorVivienda extends CI_Controller
     public function index()
     {
         $this->load->view('menu');
-        $this->load->view('VistaCrearAlumno');
+        $this->load->view('VistaCrearVivienda');
     }
 
     public function c_guardarAlumno()
     {
-        $direccion = $this->input->get('CampoRut');    //esta línea es similar a $rut = $_GET['CampoRut'];
-        $numero_casa = $this->input->get('CampoNombre');
-        $tipo = $this->input->get('CampoApellido');
+        $direccion = $this->input->get('CampoDireccion');    
+        $numero_casa = $this->input->get('CampoNumero');
+        $tipo = $this->input->get('CampoTipo');
         $estado = $this->input->get('Radiobtn');
-        //cargamos el ModeloAlumno
+      
         $this->load->model('ModeloVivienda');
 
-        //utilizamo el método m_insertAlumno() del ModeloAlumno
-        $this->ModeloVivienda->m_insertAlumno($direccion, $numero_casa, $tipo,$estado );
+       
+        $this->ModeloVivienda->m_insertVivienda($direccion, $numero_casa, $tipo,$estado );
 
-        //cerramos la BD
+       
         $this->db->close();
 
-        redirect('ControladorVivienda/c_obtenerAlumnos');
+        redirect('ControladorVivienda/c_obtenerVivienda');
     }
 
-    public function c_obtenerAlumnos()
+    public function c_obtenerVivienda()
     {
-        //cargamos el ModeloAlumno
+        
         $this->load->model('ModeloVivienda');
 
-        //utilizamo el método m_selectAlumnos() del ModeloAlumno
-        $datos_alumnos = $this->ModeloVivienda->m_selectAlumnos();
+        $datosVivienda = $this->ModeloVivienda->m_selectVivienda();
 
-        //creamos un array asociativo para almacenar la consulta de la BD.
-        $datos['query'] = $datos_alumnos;
+        $datos['query'] = $datosVivienda;
 
-        //cargamos la vista y le pasamos los datos.
         $this->load->view('menu');
-        $this->load->view('VistaMostrarAlumnos', $datos);
+        $this->load->view('VistaMostrarVivienda', $datos);
 
-        //cerramos la BD
         $this->db->close();
     }
 
-    public function c_eliminarAlumno()
+    public function c_eliminarVivienda()
     {
-        //capturamos el segmento 3 de la URL q en este caso tiene el id
         echo $id_captura = $this->uri->segment(3, 0);
 
-        //cargamos el ModeloAlumno
-        $this->load->model('ModeloAlumno');
+        $this->load->model('ModeloVivienda');
 
-        //utilizamo el método m_deleteAlumno() del ModeloAlumno
-        $datos_alumnos = $this->ModeloAlumno->m_deleteAlumno($id_captura);
+        $datosVivienda = $this->ModeloVivienda->m_deleteVivienda($id_captura);
 
-        //cerramos la BD
         $this->db->close();
-
-        /*redireccionamos al método c_obtenerAlumnos q es el encargado de cargar la vista
-        con el listado de alumnos*/
-        redirect('ControladorVivienda/c_obtenerAlumnos');
+        redirect('ControladorVivienda/c_obtenerVivienda');
     }
 
-    public function c_editarAlumno()
+    public function c_editarVivienda()
     {
 
-        //capturamos el segmento 3 de la URL q en este caso tiene el id
+       
         $id_captura = $this->uri->segment(3, 0);
 
-        //cargamos el ModeloAlumno
+       
         $this->load->model('ModeloVivienda');
 
-        //utilizamo el método m_deleteAlumno() del ModeloAlumno
-        $datos_alumnos = $this->ModeloVivienda->m_selectUnAlumno($id_captura);
+        $datosVivienda = $this->ModeloVivienda->m_selectUnVivienda($id_captura);
 
-        //creamos un array asociativo para almacenar la consulta de la BD.
-        $datos['query'] = $datos_alumnos;
+        $datos['query'] = $datosVivienda;
 
-        //cargamos la vista y le pasamos los datos.
         $this->load->view('menu');
-        $this->load->view('VistaEditarAlumno', $datos);
+        $this->load->view('VistaEditarVivienda', $datos);
     }
 
-    public function c_editarAlumnoFinal()
+    public function c_editarViviendaFinal()
     {
         $id_editar = $this->input->get('idOculto');
-        $direccion = $this->input->get('CampoRut');    //esta línea es similar a $rut = $_GET['CampoRut'];
-        $numero_casa = $this->input->get('CampoNombre');
-        $tipo = $this->input->get('CampoApellido');
+        $direccion = $this->input->get('CampoDireccion');    
+        $numero_casa = $this->input->get('CampoNumero');
+        $tipo = $this->input->get('CampoTipo');
         $estado = $this->input->get('Radiobtn');
-        //cargamos el ModeloAlumno
         $this->load->model('ModeloVivienda');
 
-        //utilizamo el método m_updateAlumno() del ModeloAlumno
-        $this->ModeloVivienda->m_updateAlumno($id_editar,$direccion, $numero_casa, $tipo, $estado);
+        $this->ModeloVivienda->m_updateVivienda($id_editar,$direccion, $numero_casa, $tipo, $estado);
 
-        //cerramos la BD
         $this->db->close();
 
-        /*redireccionamos al método c_obtenerAlumnos q es el encargado de cargar la vista
-        con el listado de alumnos*/
-        redirect('ControladorVivienda/c_obtenerAlumnos');
+       
+        redirect('ControladorVivienda/c_obtenerVivienda');
     }
 }
