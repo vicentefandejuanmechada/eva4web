@@ -41,11 +41,11 @@ class ControladorVivienda extends CI_Controller
         $datos['query'] = $datos_alumnos;
 
         //cargamos la vista y le pasamos los datos.
+        $this->db->close();
         $this->load->view('menu');
         $this->load->view('VistaMostrarAlumnos', $datos);
 
         //cerramos la BD
-        $this->db->close();
     }
 
     public function c_eliminarAlumno()
