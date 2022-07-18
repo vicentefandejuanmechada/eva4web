@@ -17,17 +17,17 @@
     <form action="<?php echo base_url()?>index.php/ControladorVivienda/c_editarAlumnoFinal" method="get">
         <input   type="hidden" name="idOculto" value="<?php echo $row['id_vivienda'];?>">
         
-        <label for="idRut">Direccion</label>
-        <input class="form-control"  type="text" name="CampoRut" id="idRut" value="<?php echo $row['direccion'];?>">
+        <label for="idDireccion">Direccion</label>
+        <input class="form-control"  type="text" name="CampoDireccion" id="idDireccion" value="<?php echo $row['direccion'];?>">
         <br>
-        <label for="idNombre">Numero De casa</label>
-        <input class="form-control"  type="text" name="CampoNombre" id="idNombre" value="<?php echo $row['numero'];?>">
+        <label for="idNumero">Numero De casa</label>
+        <input class="form-control"  type="text" name="CampoNumero" id="idNumero" value="<?php echo $row['numero'];?>">
         <br>
-        <label for="idApellido">Tipo</label>
-        <input class="form-control"  type="text" name="CampoApellido" id="idApellido" value="<?php echo $row['tipo'];?>">
+        <label for="idTipo">Tipo</label>
+        <input class="form-control"  type="text" name="CampoTipo" id="idTipo" value="<?php echo $row['tipo'];?>">
         <br>
      
-        <input class="form-control"  type="text" name="Radiobtn" id="idApellido" value="<?php echo $row['estado'];?>">
+        <input class="form-control"  type="text" name="Radiobtn" id="idEstado" value="<?php echo $row['estado'];?>">
         <br>
         <input  type="submit" value="EDITAR">
     </form>
